@@ -1433,7 +1433,7 @@ class VSSBlock(nn.Module):
                 dim=hidden_dim,
                 norm_layer=norm_layer,
                 layer_idx=self.block_index + 1,
-                alpha=1.5,  # Δ 기반 threshold 조절값 (원하면 config에서 불러도 됨)
+                alpha=0.7,  # Δ 기반 threshold 조절값 (원하면 config에서 불러도 됨)
             )
 
         # --- 머징 모듈 생성 ---
