@@ -7,6 +7,10 @@ Official implementation of **TE-VMamba**, a VMamba-based framework for efficient
 
 > Paper: coming soon
 
+## Pipeline
+
+![framework](pic/overall.png)
+
 ## Environment Setup
 
 ```sh
