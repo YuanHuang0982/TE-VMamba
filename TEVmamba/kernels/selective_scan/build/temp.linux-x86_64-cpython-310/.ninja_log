@@ -1,0 +1,4 @@
+# ninja log v7
+2	7706	1768468405279472185	/home/user/Project/TransReID/TransReID/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_core_fwd.o	bfdd6f1e3ca01b3b
+2	11356	1768468405279472185	/home/user/Project/TransReID/TransReID/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_oflex.o	7ae7937471241f00
+1	19989	1768468405278472200	/home/user/Project/TransReID/TransReID/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_core_bwd.o	afa9db1874afb0c8

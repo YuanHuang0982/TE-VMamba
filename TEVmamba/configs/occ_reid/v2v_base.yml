@@ -1,0 +1,96 @@
+MODEL:
+  NAME: "vssm"
+  DEVICE_ID: "0"
+  PRETRAIN_CHOICE: "imagenet"
+  PRETRAIN_PATH: ""
+  DROP_PATH_RATE: 0.5
+
+  NECK: "bnneck"
+  COS_LAYER: False
+  ID_LOSS_TYPE: "softmax"
+  METRIC_LOSS_TYPE: "triplet"
+  IF_LABELSMOOTH: "off"
+  IF_WITH_CENTER: "no"
+  NO_MARGIN: False
+  DIST_TRAIN: False
+
+  VSSM:
+    IN_CHANS: 3
+    PATCH_SIZE: 4
+    EMBED_DIM: 128
+
+    DEPTHS: [2, 2, 20, 2]
+    SSM_RATIO: 1.0
+    SSM_D_STATE: 1
+    SSM_DT_RANK: "auto"
+    SSM_CONV: 3
+    SSM_CONV_BIAS: False
+    SSM_FORWARDTYPE: "v05_noz"
+    MLP_RATIO: 4.0
+    DOWNSAMPLE: "v3"
+    PATCHEMBED: "v2"
+    NORM_LAYER: "ln2d"
+
+  TOKEN_ADAPT:
+    ENABLE: True
+
+    TOKEN_PRUNE: True
+    TOKEN_MERGE: True
+
+    PRUNE_LAYERS: [5,6,7]
+    MERGE_LAYERS: [12,13,14,15,16]
+
+    MERGE_START: 8
+
+    PRUNE_THRESHOLD: 0.25
+    PRUNE_SIM: "cos_delta"
+    PRUNE_IMP: "l2"
+
+    MERGE_TAU_GATE: 0.5
+    MERGE_GATE_HIDDEN: 64
+
+    FINAL_THRESHOLD: 0.1
+
+INPUT:
+  SIZE_TRAIN: [224, 224]
+  SIZE_TEST:  [224, 224]
+  PROB: 0.5
+  RE_PROB: 0.3
+  PADDING: 10
+  PIXEL_MEAN: [0.485, 0.456, 0.406]
+  PIXEL_STD:  [0.229, 0.224, 0.225]
+
+DATASETS:
+  NAMES: "occ_reid"
+  ROOT_DIR: "../data"
+
+DATALOADER:
+  SAMPLER: "softmax_triplet"
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+
+SOLVER:
+  OPTIMIZER_NAME: "AdamW"
+  MAX_EPOCHS: 300
+  BASE_LR: 3e-4
+  IMS_PER_BATCH: 64
+  WARMUP_EPOCHS: 5
+  WARMUP_METHOD: "linear"
+  LARGE_FC_LR: False
+  BIAS_LR_FACTOR: 1
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.05
+  WEIGHT_DECAY_BIAS: 0.0
+  CHECKPOINT_PERIOD: 50
+  LOG_PERIOD: 100
+  EVAL_PERIOD: 300
+
+TEST:
+  EVAL: True
+  IMS_PER_BATCH: 256
+  RE_RANKING: False
+  WEIGHT: ""
+  NECK_FEAT: "before"
+  FEAT_NORM: "yes"
+
+OUTPUT_DIR: "../logs/occ_reid_vssm_base"
