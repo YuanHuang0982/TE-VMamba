@@ -5,7 +5,7 @@
 
 Official implementation of **TE-VMamba**, a VMamba-based framework for efficient person re-identification.
 
-> [Paper](https://openaccess.thecvf.com/content/CVPR2026/papers/Huang_SSM-Aware_Token-Efficient_VMamba_via_Adaptive_Patch_Pruning_and_Merging_for_CVPR_2026_paper.pdf) has been accepted by CVPR-2026
+> [Paper](https://openaccess.thecvf.com/content/CVPR2026/papers/Huang_SSM-Aware_Token-Efficient_VMamba_via_Adaptive_Patch_Pruning_and_Merging_for_CVPR_2026_paper.pdf) has been accepted by CVPR-2026<br>
 > [Video](https://www.youtube.com/watch?v=DGkmCfocnkQ)
 
 ## Pipeline
